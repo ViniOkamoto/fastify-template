@@ -7,4 +7,5 @@ export interface UserRepository {
   findAll(): Promise<User[]>
   create(request: UserRequest): Promise<User>
   delete(id: string): Promise<void>
+  update(id: string, name: string): Promise<User>
 }
