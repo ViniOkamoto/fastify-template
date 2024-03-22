@@ -1,29 +1,31 @@
+# Fastify Template Platform
 
-# Coffee Delivery Platform
-
-Craving the perfect cup of coffee? Look no further than our Coffee Delivery platform!
+A quick startup for you Fastify project.
 
 # Features
 
 User Management: Perform CRUD operations on users.
+Authentication: Perfom authentication with JWT.
 
 # Local Installation Guide
 
- 1. Clone the Repository:
+1.  Clone the Repository:
+
 ```bash
-git remote add origin https://github.com/ViniOkamoto/coffee-delivery.git
+git remote add origin URL
 cd coffee-delivery
 ```
+
 2. Install Prerequisites:
 
 Make sure you have [Node.js](https://nodejs.org/) and [Docker](https://www.docker.com/) installed on your local machine.
 
 3. Configure Environment Variables:
-Set up the required environment variables as per the example provided in .env.example.
+   Set up the required environment variables as per the example provided in .env.example.
 
 4. Run the Application:
-```bash
 
+```bash
 docker compose up -d
 npm i
 npx prisma generate
@@ -41,4 +43,4 @@ If the setup is successful, you should see the following message in your termina
 
 ```
 
-Feel free to explore and enjoy your coffee experience with our Coffee Delivery platform!
+Feel free to explore and update this template.

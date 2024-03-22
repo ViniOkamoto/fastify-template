@@ -1,10 +1,7 @@
-// import { GymsRepository } from '@/repositories/gyms-repository'
-// import { Gym } from '@prisma/client'
-
-import { User } from '@prisma/client'
-import { UsersRepository } from '../../data/respository/user-repository'
 import { hash } from 'bcryptjs'
 import { UserAlreadyExistsError } from '../errors/user-already-exist-error'
+import { UserRepository } from '../repository/user-repository'
+import { User } from '../models/user'
 
 interface RegisterUserCaseRequest {
   name: string
@@ -17,7 +14,7 @@ interface RegisterUserUseCaseResponse {
 }
 
 export class RegisterUserUseCase {
-  constructor(private usersRepository: UsersRepository) {}
+  constructor(private usersRepository: UserRepository) {}
 
   async execute({
     name,

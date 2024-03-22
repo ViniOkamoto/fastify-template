@@ -1,12 +1,13 @@
+/* eslint-disable prettier/prettier */
 import { afterEach, beforeEach, describe, it, vi } from 'vitest'
-import { RegisterUserUseCase } from './register-user-use-case'
-import { UsersRepository } from '../../data/respository/user-repository'
+import { RegisterUserUseCase } from './register'
 import { User } from '@prisma/client'
 import { compare } from 'bcryptjs'
 import { UserAlreadyExistsError } from '../errors/user-already-exist-error'
+import { UserRepository } from '../repository/user-repository'
 
 describe('RegisterUserUseCase', () => {
-  let userRepository: UsersRepository
+  let userRepository: UserRepository
   let registerUserUseCase: RegisterUserUseCase
 
   beforeEach(() => {
@@ -25,7 +26,7 @@ describe('RegisterUserUseCase', () => {
       findByEmail: vi.fn().mockImplementation(async () => {
         return null
       }),
-    } as unknown as UsersRepository
+    } as unknown as UserRepository
     registerUserUseCase = new RegisterUserUseCase(userRepository)
   })
 
@@ -71,7 +72,7 @@ describe('RegisterUserUseCase', () => {
         name: 'foo',
         email: 'foo@example.com',
         password: '123456',
-      }),
+      })
     ).rejects.toBeInstanceOf(UserAlreadyExistsError)
 
     expect(spyFindByEmail).toHaveBeenCalled()
@@ -87,7 +88,7 @@ describe('RegisterUserUseCase', () => {
         name: 'foo Doe',
         email: 'foo.doe@example.com',
         password: '123456',
-      }),
+      })
     ).rejects.toThrow('Test error')
     expect(spy).toHaveBeenCalled()
   })
