@@ -46,4 +46,12 @@ export class PrismaUsersRepository implements UserRepository {
   dispose() {
     this.prisma.$disconnect()
   }
+
+  async delete(id: string): Promise<void> {
+    await this.prisma.user.delete({
+      where: {
+        id,
+      },
+    })
+  }
 }

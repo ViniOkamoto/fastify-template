@@ -10,5 +10,8 @@ export async function usersRoutes(app: FastifyInstance) {
   app.post('/register', authController.register)
   app.post('/authenticate', authController.authenticate)
 
+  // app.addHook('onRequest', verifyJwt)
+
   app.get('/profile', { preHandler: verifyJwt }, userController.get)
+  app.delete('/profile', { preHandler: verifyJwt }, userController.delete)
 }

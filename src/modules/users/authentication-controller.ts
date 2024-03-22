@@ -57,6 +57,7 @@ export default class AuthenticationController {
         {
           sign: {
             sub: user.id,
+            expiresIn: '1h',
           },
         }
       )

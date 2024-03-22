@@ -6,4 +6,5 @@ export interface UserRepository {
   findById(id: string): Promise<User | null>
   findAll(): Promise<User[]>
   create(request: UserRequest): Promise<User>
+  delete(id: string): Promise<void>
 }
